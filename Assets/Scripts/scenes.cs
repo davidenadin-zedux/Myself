@@ -25,106 +25,6 @@ public class scenes : MonoBehaviour
 
     Modello m = new Modello();
 
-    private void Start()
-    {
-        if (PlayerPrefs.HasKey("saves1"))
-        {
-            for(int i = 0; i < 3; i++)
-            {
-                hairstyles_forpos[i].SetActive(false);
-            }
-
-            m = (JsonUtility.FromJson<Modello>(PlayerPrefs.GetString("saves" + SceneManager.GetActiveScene().buildIndex)));
-
-            for (int i = 0; i < 86; i++)
-            {
-                modello.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(i, m.blendshapes[i]);
-            }
-
-            switch (m.blendshapes[86])
-            {
-                case 0:
-                    hairstyles_forpos[0].SetActive(true);
-                    break;
-
-                case 1:
-                    hairstyles_forpos[1].SetActive(true);
-                    break;
-
-                case 2:
-                    hairstyles_forpos[2].SetActive(true);
-                    break;
-            }
-
-            
-            for(int i=0; i<3; i++)
-            {
-                if (m.blendshapes[89] < 0)
-                {
-                    hairstyles_forpos[i].transform.localPosition = new Vector3(0.0001269094f, -0.00059f, 0.00003436f * (m.blendshapes[89] + 50) + 0.005379f - offset1);
-                    offset = 0.00003436f * (m.blendshapes[89] + 50) + 0.005379f;
-                }
-                else
-                {
-                    hairstyles_forpos[i].transform.localPosition = new Vector3(0.0001269094f, -0.00059f, 0.00006665f * m.blendshapes[89] + 0.007097f - offset1);
-                    offset = 0.00006665f * m.blendshapes[89] + 0.007097f;
-                }
-
-                hairstyles_forpos[i].transform.localPosition = new Vector3(0.0001269094f, -0.00059f, offset - 0.00000714f * m.blendshapes[90]);
-                offset1 = 0.00000714f * m.blendshapes[90];
-            }
-
-            offset = 0.007096f;
-            offset1 = 0;
-
-            switch (m.blendshapes[87])
-            {
-                case 0:
-                    hairstyles_forcol[0].GetComponent<Renderer>().material = hairstyles_color[0];
-                    hairstyles_forcol[1].GetComponent<Renderer>().material = hairstyles_color[0];
-                    hairstyles_forcol[2].GetComponent<Renderer>().material = hairstyles_color[0];
-                    break;
-
-                case 1:
-                    hairstyles_forcol[0].GetComponent<Renderer>().material = hairstyles_color[1];
-                    hairstyles_forcol[1].GetComponent<Renderer>().material = hairstyles_color[1];
-                    hairstyles_forcol[2].GetComponent<Renderer>().material = hairstyles_color[1];
-                    break;
-
-                case 2:
-                    hairstyles_forcol[0].GetComponent<Renderer>().material = hairstyles_color[2];
-                    hairstyles_forcol[1].GetComponent<Renderer>().material = hairstyles_color[2];
-                    hairstyles_forcol[2].GetComponent<Renderer>().material = hairstyles_color[2];
-                    break;
-
-                case 3:
-                    hairstyles_forcol[0].GetComponent<Renderer>().material = hairstyles_color[3];
-                    hairstyles_forcol[1].GetComponent<Renderer>().material = hairstyles_color[3];
-                    hairstyles_forcol[2].GetComponent<Renderer>().material = hairstyles_color[3];
-                    break;
-            }
-
-            switch (m.blendshapes[88])
-            {
-                case 0:
-                    modello.GetComponent<Renderer>().material = skin_color[0];
-                    break;
-
-                case 1:
-                    modello.GetComponent<Renderer>().material = skin_color[1];
-                    break;
-
-                case 2:
-                    modello.GetComponent<Renderer>().material = skin_color[2];
-                    break;
-
-                case 3:
-                    modello.GetComponent<Renderer>().material = skin_color[3];
-                    break;
-            }
-        }
-    }
-
     public void nextScene()
     {   
         if(SceneManager.GetActiveScene().buildIndex < 3)
@@ -176,11 +76,6 @@ public class scenes : MonoBehaviour
                         m1.blendshapes[88] = i;
                     }
                 }
-
-                //pos parrucca
-                m1.blendshapes[89] = blendshape.heightValue;
-
-                m1.blendshapes[90] = blendshape.oldValue;
                 break;
 
             case 2:
@@ -216,11 +111,6 @@ public class scenes : MonoBehaviour
                         m2.blendshapes[88] = i;
                     }
                 }
-
-                //pos parrucca
-                m2.blendshapes[89] = blendshape.heightValue;
-
-                m2.blendshapes[90] = blendshape.oldValue;
                 break;
 
             case 3:
@@ -256,11 +146,6 @@ public class scenes : MonoBehaviour
                         m3.blendshapes[88] = i;
                     }
                 }
-
-                //pos parrucca
-                m3.blendshapes[89] = blendshape.heightValue;
-
-                m3.blendshapes[90] = blendshape.oldValue;
                 break;
         }
     }

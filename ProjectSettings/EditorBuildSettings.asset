@@ -9,15 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/menu.unity
     guid: 93d0abf243c0a7f4b86ba39533211d51
   - enabled: 1
-    path: Assets/Scenes/ichoose.unity
+    path: Assets/Scenes/comesono.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/ichoose 2.unity
-    guid: 7714d91df480aa74bb9b5c01398a1269
+    path: Assets/Scenes/comemivedelui.unity
+    guid: 68b78c019fbd2074482c4d57d205bff5
   - enabled: 1
-    path: Assets/Scenes/ichoose 3.unity
-    guid: cf684bd6819e15f46b7e7077b29f5700
+    path: Assets/Scenes/comevorrei.unity
+    guid: 1dfe94445c5dd3645aa2bb6e92d9ed89
   - enabled: 1
-    path: Assets/Scenes/ichoose 1.unity
+    path: Assets/Scenes/risultati.unity
     guid: 6c5482db5aad9c24a93a69759031487b
   m_configObjects: {}
